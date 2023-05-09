@@ -1,19 +1,15 @@
 from flask import Flask
 
 app = Flask(__name__)
+from sport import sport_bp
+
+app.register_blueprint(sport_bp)
 
 @app.route("/")
 def hello_world():
     print("hello")
     return "<p>Hello, World!</p>"
 
-@app.route("/news")
-def news():
-    return "<p>This is the NEWS</p>"
-
-@app.route("/sport")
-def sport():
-    return "<p>This is the SPORT section</p>"
 
 @app.route("/about")
 def about():
